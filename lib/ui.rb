@@ -54,4 +54,8 @@ module UserInterface
   def row_three
     aside_row_three + main_row_three
   end
+
+  def table
+    row_one + row_two + row_three
+  end
 end
