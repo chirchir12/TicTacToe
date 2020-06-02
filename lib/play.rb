@@ -53,6 +53,51 @@ module Play
   end
 
   def assign_cell
-    board.player_move = current_player.symbol
+    cells[player_move][0] == current_player.symbol
+  end
+
+  def compute_state
+    check_draw?
+    check_rows
+    check_columns
+    check_diagonals
+  end
+
+  def check_rows
+    extract_rows.each do |i|
+      return 'win' if i.all? 'X' or i.all? 'O'
+    end
+  end
+
+  def check_columns
+    extract_columns.each do |i|
+      return 'win' if i.all? 'X' or i.all? 'O'
+    end
+  end
+
+  def check_diagonals
+    extract_diagonals.each do |i|
+      return 'win' if i.all? 'X' or i.all? 'O'
+    end
+  end
+
+  def check_tie
+    'tie' if state != 'win' and no_of_moves == 9
+  end
+
+  def check_continue
+    ' continue' if state! win and no_of_moves < 9
+  end
+
+  def decide
+    if check_state == 'win'
+      board.message = "#{current_player} has Won"
+      restart
+    elsif check_state == 'tie'
+      board.message = "It's a tie"
+      restart
+    elsif check_state == 'continue'
+      continue
+    end
   end
 end
