@@ -51,4 +51,8 @@ module Play
     compute_state
     decide
   end
+
+  def assign_cell
+    board.player_move = current_player.symbol
+  end
 end
