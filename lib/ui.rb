@@ -46,4 +46,8 @@ module UserInterface
   def row_one
     aside_row_one + main_row_one + breaker_one
   end
+
+  def row_two
+    aside_row_two + main_row_two + breaker_two
+  end
 end
