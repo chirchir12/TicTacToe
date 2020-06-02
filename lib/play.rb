@@ -45,4 +45,10 @@ module Play
       position_taken_error
     end
   end
+
+  def update
+    assign_cell
+    compute_state
+    decide
+  end
 end
