@@ -50,4 +50,8 @@ module UserInterface
   def row_two
     aside_row_two + main_row_two + breaker_two
   end
+
+  def row_three
+    aside_row_three + main_row_three
+  end
 end
