@@ -36,4 +36,13 @@ module Play
       restart
     end
   end
+
+  def process_error
+    case check_input_validity
+    when 'wrong_input'
+      wrong_input
+    when 'taken'
+      position_taken_error
+    end
+  end
 end
