@@ -12,4 +12,8 @@ class Board
     @message = 'WELCOME! PLEASE CHOOSE ONE OF THE NINE CELLS'
     @state = 'ON'
   end
+
+  def toggle_players
+    @player_name = @player_name == 'PLAYER-1' ? 'PLAYER-2' : 'PLAYER-1'
+  end
 end
