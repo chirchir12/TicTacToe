@@ -18,4 +18,8 @@ module UserInterface
   def breaker_one
     ('   -----------' + '        ' + "-----------\n")
   end
+
+  def aside_row_two
+    "    #{cells['4'][1]} | #{cells['5'][1]} | #{cells['6'][1]}        "
+  end
 end
