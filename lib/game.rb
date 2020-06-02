@@ -1,11 +1,10 @@
 require_relative './play'
+require_relative './board'
+require_relative './player'
 class Game
   include Play
-  attr_accessor :players, :current_player, :player_move, :number_of_moves, :board
+  attr_accessor :board
   def initialize
     @board = Board.new
-    @current_player = 'PLAYER-1'
-    @number_of_moves = 0
-    @player_move = nil
   end
 end

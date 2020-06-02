@@ -1,24 +1,26 @@
 module Play
   def read_input
-    @player_move = gets.chomp
+    board.player_move = gets.chomp
   end
 
   def check_input_validity
-    if player_move == ''
-      'no input'
-    elsif !%w[1 2 3 4 5 6 7 8 9 e E r R].include?(player_move)
-      'wrong input'
+    if board.player_move.empty?
+      'no_input'
+    elsif !%w[1 2 3 4 5 6 7 8 9 e E r R].include?(board.player_move)
+      'wrong_input'
     else
       'good'
     end
   end
 
   def check_input_availability
-    if (player_move == 'e') || (player_move == 'E')
+    return unless check_input_validity == 'good'
+
+    if board.player_move == 'e'
       'exit'
-    elsif (player_move == 'r') || (player_move == 'R')
+    elsif board.player_move == 'r'
       'restart'
-    elsif cells[player_move][0] != ' '
+    elsif board.cells[board.player_move][0] != ' '
       'taken'
     else
       'continue'
@@ -31,6 +33,8 @@ module Play
       update
     when 'exit'
       quit
+    when 'taken'
+      position_taken_error
     when 'restart'
       restart
     end
@@ -44,8 +48,6 @@ module Play
     case check_input_validity
     when 'wrong_input'
       wrong_input
-    when 'taken'
-      position_taken_error
     when 'no_input'
       no_input
     end
@@ -53,52 +55,62 @@ module Play
 
   def wrong_input
     board.message = 'Wrong Input , Please choose form 1-9'
-    update
+    continue
   end
 
   def position_taken_error
     board.message = 'That position is taken, choose form the available ones'
-    update
+    continue
   end
 
   def no_input
     board.message = 'Please choose form the available cells '
-    update
+    continue
   end
 
   def update
-    assign_cell compute_state decide
+    assign_cell
+    board.message = 'Please choose form the available cells'
+    board.compute_state
+    decide
   end
 
   def assign_cell
-    cells[player_move][0] == current_player.symbol
-  end
-
-  def compute_state
-    check_rows check_columns check_diagonals check_draw check_continue
-  end
-
-  def check_tie
-    'tie' if state != 'win' and no_of_moves == 9
-  end
-
-  def check_continue
-    ' continue' if state! win and no_of_moves < 9
+    board.cells[board.player_move][0] = board.current_player.symbol
   end
 
   def decide
-    if check_state == 'win'
-      board.message = "#{current_player} has Won"
+    if board.state == 'WIN'
+      board.message = "#{current_player.name} has Won"
       restart
-    elsif check_state == 'tie'
+    elsif board.state == 'tie'
       board.message = "It's a tie"
       restart
-    elsif check_state == 'continue'
+    elsif board.state == 'continue'
       continue
     end
   end
 
+  def continue
+    board.toggle_players
+    system('clear')
+    display
+    read_input
+    process_input
+    process_error
+  end
+
+  def display
+    puts board.ui
+  end
+
   def restart
-    board.display read_input check_input_validity check_input_availability process_input process_error
+    system('clear')
+    system('ruby main')
+  end
+
+  def start
+    Game.new
+    continue
   end
 end
