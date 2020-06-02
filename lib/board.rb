@@ -17,7 +17,14 @@ class Board
     @player_name = @player_name == 'PLAYER-1' ? 'PLAYER-2' : 'PLAYER-1'
   end
 
+  def extract_values
+    result = []
+    @cells.values.each do |i|
+      result << i[0]
+    end
+  end
+
   def display
-    puts ui
+    ui
   end
 end
