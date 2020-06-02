@@ -58,4 +58,8 @@ module UserInterface
   def table
     row_one + row_two + row_three
   end
+
+  def display_ui
+    puts mssg + header + table + footer
+  end
 end
