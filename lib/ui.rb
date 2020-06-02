@@ -34,4 +34,8 @@ module UserInterface
   def aside_row_three
     "    #{cells['7'][1]} | #{cells['8'][1]} | #{cells['9'][1]}        "
   end
+
+  def main_row_three
+    "  #{cells['7'][0]} | #{cells['8'][0]} | #{cells['9'][0]} \n"
+  end
 end
