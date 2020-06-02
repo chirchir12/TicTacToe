@@ -1,21 +1,4 @@
 #!/usr/bin/env ruby
-require_relative '../lib/board'
-system('clear')
-board = Board.new
-board.display
-acceptable = %w[1 2 3 4 5 6 7 8 9 e E r R]
-(1..9).each do |i|
-  t = gets.chomp
-  if acceptable.include? t
-    system('clear')
-    acceptable.delete(board.cells[t][1])
-    board.cells[t] = if i.to_i.even?
-                       ['X', ' ']
-                     else
-                       ['O', ' ']
-                     end
-    board.toggle_players
-  end
-  system('clear')
-  board.display
-end
+require_relative '../lib/game'
+game = Game.new
+game.start
