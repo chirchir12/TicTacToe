@@ -16,4 +16,8 @@ class Board
   def toggle_players
     @player_name = @player_name == 'PLAYER-1' ? 'PLAYER-2' : 'PLAYER-1'
   end
+
+  def display
+    puts ui
+  end
 end
