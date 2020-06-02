@@ -31,10 +31,13 @@ module Play
       update
     when 'exit'
       quit
-
     when 'restart'
       restart
     end
+  end
+
+  def quit
+    system('clear')
   end
 
   def process_error
@@ -43,13 +46,28 @@ module Play
       wrong_input
     when 'taken'
       position_taken_error
+    when 'no_input'
+      no_input
     end
   end
 
+  def wrong_input
+    board.message = 'Wrong Input , Please choose form 1-9'
+    update
+  end
+
+  def position_taken_error
+    board.message = 'That position is taken, choose form the available ones'
+    update
+  end
+
+  def no_input
+    board.message = 'Please choose form the available cells '
+    update
+  end
+
   def update
-    assign_cell
-    compute_state
-    decide
+    assign_cell compute_state decide
   end
 
   def assign_cell
@@ -57,28 +75,7 @@ module Play
   end
 
   def compute_state
-    check_draw?
-    check_rows
-    check_columns
-    check_diagonals
-  end
-
-  def check_rows
-    extract_rows.each do |i|
-      return 'win' if i.all? 'X' or i.all? 'O'
-    end
-  end
-
-  def check_columns
-    extract_columns.each do |i|
-      return 'win' if i.all? 'X' or i.all? 'O'
-    end
-  end
-
-  def check_diagonals
-    extract_diagonals.each do |i|
-      return 'win' if i.all? 'X' or i.all? 'O'
-    end
+    check_rows check_columns check_diagonals check_draw check_continue
   end
 
   def check_tie
@@ -99,5 +96,9 @@ module Play
     elsif check_state == 'continue'
       continue
     end
+  end
+
+  def restart
+    board.display read_input check_input_validity check_input_availability process_input process_error
   end
 end

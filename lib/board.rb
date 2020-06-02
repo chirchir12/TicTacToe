@@ -47,6 +47,24 @@ class Board
     diagonals
   end
 
+  def check_rows
+    extract_rows.each do |i|
+      return 'win' if i.all? 'X' or i.all? 'O'
+    end
+  end
+
+  def check_columns
+    extract_columns.each do |i|
+      return 'win' if i.all? 'X' or i.all? 'O'
+    end
+  end
+
+  def check_diagonals
+    extract_diagonals.each do |i|
+      return 'win' if i.all? 'X' or i.all? 'O'
+    end
+  end
+
   def display
     ui
   end
