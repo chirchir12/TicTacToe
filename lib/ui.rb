@@ -26,4 +26,8 @@ module UserInterface
   def main_row_two
     "  #{cells['4'][0]} | #{cells['5'][0]} | #{cells['6'][0]} \n"
   end
+
+  def breaker_two
+    '   -----------' + '        ' + "-----------\n"
+  end
 end
