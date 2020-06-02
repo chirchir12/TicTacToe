@@ -18,7 +18,7 @@ module Play
       'exit'
     elsif (player_move == 'r') || (player_move == 'R')
       'restart'
-    elsif board.cells[player_move][0] != ' '
+    elsif cells[player_move][0] != ' '
       'taken'
     else
       'continue'
