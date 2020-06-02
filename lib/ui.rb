@@ -42,4 +42,8 @@ module UserInterface
   def footer
     "\n     #{option}\n\n"
   end
+
+  def row_one
+    aside_row_one + main_row_one + breaker_one
+  end
 end
