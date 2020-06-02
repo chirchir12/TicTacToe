@@ -24,4 +24,16 @@ module Play
       'continue'
     end
   end
+
+  def process_input
+    case check_input_availability
+    when 'continue'
+      update
+    when 'exit'
+      quit
+
+    when 'restart'
+      restart
+    end
+  end
 end
