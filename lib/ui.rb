@@ -38,4 +38,8 @@ module UserInterface
   def main_row_three
     "  #{cells['7'][0]} | #{cells['8'][0]} | #{cells['9'][0]} \n"
   end
+
+  def footer
+    "\n     #{option}\n\n"
+  end
 end
