@@ -12,4 +12,16 @@ module Play
       'good'
     end
   end
+
+  def check_input_availability
+    if (player_move == 'e') || (player_move == 'E')
+      'exit'
+    elsif (player_move == 'r') || (player_move == 'R')
+      'restart'
+    elsif board.cells[player_move][0] != ' '
+      'taken'
+    else
+      'continue'
+    end
+  end
 end
