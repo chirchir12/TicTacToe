@@ -10,4 +10,8 @@ module UserInterface
   def aside_row_one
     "\n    #{cells['1'][1]} | #{cells['2'][1]} | #{cells['3'][1]}       "
   end
+
+  def main_row_one
+    "   #{cells['1'][0]} | #{cells['2'][0]} | #{cells['3'][0]}\n"
+  end
 end
