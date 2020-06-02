@@ -24,6 +24,14 @@ class Board
     end
   end
 
+  def extract_columns
+    columns = []
+    (0..2).each do |i|
+      columns << [extract_values[i], extract_values[i + 3], extract_values[i + 6]]
+    end
+    columns
+  end
+
   def display
     ui
   end
