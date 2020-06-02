@@ -77,6 +77,7 @@ module Play
 
   def assign_cell
     board.cells[board.player_move][0] = board.current_player.symbol
+    board.cells[board.player_move][1] = ' '
   end
 
   def decide
