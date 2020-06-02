@@ -30,4 +30,8 @@ module UserInterface
   def breaker_two
     '   -----------' + '        ' + "-----------\n"
   end
+
+  def aside_row_three
+    "    #{cells['7'][1]} | #{cells['8'][1]} | #{cells['9'][1]}        "
+  end
 end
