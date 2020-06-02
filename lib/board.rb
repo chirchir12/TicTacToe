@@ -32,6 +32,13 @@ class Board
     columns
   end
 
+  def extract_diagonals
+    diagonals = []
+    diagonals << [extract_values[0], extract_values[4], extract_values[8]]
+    diagonals << [extract_values[2], extract_values[4], extract_values[6]]
+    diagonals
+  end
+
   def display
     ui
   end
