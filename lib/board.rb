@@ -2,7 +2,7 @@ require_relative 'ui.rb'
 
 class Board
   include UserInterface
-  attr_accessor :cells, :option, :player_name, :state, :message
+  attr_reader :cells, :option, :player_name, :state, :message
 
   def initialize
     @cells = { '1' => [' ', '1'], '2' => [' ', '2'], '3' => [' ', '3'], '4' => [' ', '4'],

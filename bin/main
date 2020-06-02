@@ -1,2 +1,16 @@
 #!/usr/bin/env ruby
-puts 'Hello world!'
+require_relative '../lib/board'
+system('clear')
+board = Board.new
+board.display
+(1..9).each do |i|
+  t = gets.chomp
+  system('clear')
+  board.cells[t] = if i.to_i.even?
+                     ['X', ' ']
+                   else
+                     ['O', ' ']
+                   end
+  board.toggle_players
+  board.display
+end
