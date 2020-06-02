@@ -22,4 +22,8 @@ module UserInterface
   def aside_row_two
     "    #{cells['4'][1]} | #{cells['5'][1]} | #{cells['6'][1]}        "
   end
+
+  def main_row_two
+    "  #{cells['4'][0]} | #{cells['5'][0]} | #{cells['6'][0]} \n"
+  end
 end
