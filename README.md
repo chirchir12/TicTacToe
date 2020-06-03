@@ -1,4 +1,4 @@
-# Ruby Bubble Sort
+# Ruby Tic Tac Toe Milestone 4
 
 ## Built With
 
@@ -13,8 +13,6 @@
 ### when there is a tie
 
 ![screenshot](images/tie.png)
-
-## Milestone 4
 
 ## ### Game Instructions
 
