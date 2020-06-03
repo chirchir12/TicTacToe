@@ -36,6 +36,7 @@ module Play
     when 'taken'
       position_taken_error
     when 'restart'
+      system('clear')
       restart
     end
   end
@@ -59,7 +60,7 @@ module Play
   end
 
   def position_taken_error
-    board.message = "\n       cleaThat position is taken,\n" + '    choose form the available ones'
+    board.message = "\n       That position is taken,\n" + '    choose form the available ones'
     continue
   end
 
@@ -106,6 +107,7 @@ module Play
 
   def restart
     display_status if board.state == 'WIN'
+
     system('ruby main')
   end
 
