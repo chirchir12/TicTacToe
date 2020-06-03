@@ -1,6 +1,6 @@
 module UserInterface
   def header
-    "\n           Its #{next_player.name} (#{next_player.symbol})'s turn }\n"
+    "\n           Its #{next_player.name} (#{next_player.symbol})'s turn \n"
   end
 
   def mssg

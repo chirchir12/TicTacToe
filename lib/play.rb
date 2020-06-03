@@ -102,7 +102,7 @@ module Play
   end
 
   def display
-    puts board.ui
+    game.display
   end
 
   def restart
