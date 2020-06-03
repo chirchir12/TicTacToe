@@ -34,7 +34,7 @@ In this project, we built a Tic Tac Toe game. The main goal is to put into pract
     1. Click on the install or download button under the repository name and grab the url
     by clicking on the clipboard icon
 
-![Step-1](images/howtoinstall.png)
+![Step-1](images/github.png)
 
     2.open your terminal
 
