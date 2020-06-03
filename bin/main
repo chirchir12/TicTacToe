@@ -1,2 +1,22 @@
 #!/usr/bin/env ruby
-puts 'Hello world!'
+require_relative '../lib/play'
+require_relative '../lib/board'
+require_relative '../lib/player'
+
+class Game
+  include Play
+  attr_accessor :board
+  def initialize
+    @board = Board.new
+  end
+
+  def display
+    @board.ui.display
+  end
+end
+game = Game.new
+puts 'Enter First Player\'s Name:'
+game.board.player1.name = gets.chomp.upcase
+puts 'Enter Second Player\'s Name:'
+game.board.player2.name = gets.chomp.upcase
+game.start
