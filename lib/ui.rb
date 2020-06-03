@@ -1,6 +1,6 @@
 module UserInterface
   def header
-    "              #{current_player.name}\n"
+    "\n           Its #{next_player.name} (#{next_player.symbol})'s turn }\n"
   end
 
   def mssg
@@ -40,7 +40,7 @@ module UserInterface
   end
 
   def footer
-    "\n     #{option}\n\n"
+    "\n    #{option}\n\n"
   end
 
   def row_one

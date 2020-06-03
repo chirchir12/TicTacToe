@@ -59,7 +59,7 @@ module Play
   end
 
   def position_taken_error
-    board.message = 'That position is taken, choose form the available ones'
+    board.message = "     That position is taken,\n" + '    choose form the available ones'
     continue
   end
 

@@ -1,4 +1,9 @@
 #!/usr/bin/env ruby
 require_relative '../lib/game'
+
 game = Game.new
+puts 'Enter First Player\'s Name:'
+game.board.player1.name = gets.chomp.upcase
+puts 'Enter Second Player\'s Name:'
+game.board.player2.name = gets.chomp.upcase
 game.start
