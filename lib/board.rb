@@ -2,14 +2,14 @@ require_relative 'ui.rb'
 require_relative 'player'
 class Board
   include UserInterface
-  attr_reader :option, :player_name
+  attr_reader :option
   attr_accessor :state, :player_move, :current_player, :player1, :player2, :message, :cells
 
   def initialize
     @cells = { '1' => [' ', '1'], '2' => [' ', '2'], '3' => [' ', '3'], '4' => [' ', '4'],
                '5' => [' ', '5'], '6' => [' ', '6'], '7' => [' ', '7'], '8' => [' ', '8'], '9' => [' ', '9'] }
     @option = 'Press E to exit, R to restart'
-    @player1 = Player.new('player1', 'X')
+    @player1 = Player.new('Player-1', 'X')
     @player2 = Player.new('Player-2', 'O')
     @current_player = player2
     @player_name = current_player.name

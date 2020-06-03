@@ -1,6 +1,6 @@
 module UserInterface
   def header
-    "              #{player_name}\n"
+    "              #{current_player.name}\n"
   end
 
   def mssg
