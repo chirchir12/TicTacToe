@@ -85,7 +85,9 @@ class Board
 
   def check_tie
     # check if we have a tie by checking we all positions are filled without a win
+    puts "#{@state} at the check tie"
     @state = 'tie' if @state != 'WON' && finished?
+    puts "#{@state} at the check tie"
   end
 
   def check_continue

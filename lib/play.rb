@@ -82,7 +82,7 @@ module Play
       board.message = "         #{board.current_player.name} has Won"
       restart
     elsif board.state == 'tie'
-      board.message = "It's a tie"
+      board.message = "          It's a tie"
       restart
     elsif board.state == 'continue'
       continue
@@ -106,7 +106,7 @@ module Play
   end
 
   def restart
-    display_status if board.state == 'WIN'
+    display_status if board.state == 'WIN' || board.state == 'tie'
 
     system('ruby main')
   end
