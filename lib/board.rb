@@ -8,7 +8,7 @@ class Board
   def initialize
     @cells = { '1' => [' ', '1'], '2' => [' ', '2'], '3' => [' ', '3'], '4' => [' ', '4'],
                '5' => [' ', '5'], '6' => [' ', '6'], '7' => [' ', '7'], '8' => [' ', '8'], '9' => [' ', '9'] }
-    @option = 'Press E to exit, R to restart'
+    @option = 'Press e to exit, r to restart'
     @player1 = Player.new('Player-1', 'X')
     @player2 = Player.new('Player-2', 'O')
     @current_player = player2

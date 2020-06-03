@@ -69,6 +69,7 @@ module Play
   end
 
   def update
+    board.toggle_players
     assign_cell
     board.message = 'Please choose form the available cells'
     board.compute_state
@@ -93,7 +94,6 @@ module Play
   end
 
   def continue
-    board.toggle_players
     system('clear')
     display
     read_input
