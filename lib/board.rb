@@ -81,7 +81,6 @@ class Board
     check_rows
     check_columns
     check_diagonals
-    # p"the state of the board is #{@state}"
   end
 
   def check_tie

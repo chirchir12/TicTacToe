@@ -15,10 +15,12 @@ class Game
   end
 
   def display_status
+    system('clear')
     @board.status_ui.display
   end
 end
 game = Game.new
+
 puts 'Enter First Player\'s Name:'
 game.board.player1.name = gets.chomp.upcase
 puts 'Enter Second Player\'s Name:'
