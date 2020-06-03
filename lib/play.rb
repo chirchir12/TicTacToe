@@ -54,24 +54,24 @@ module Play
   end
 
   def wrong_input
-    board.message = 'Wrong Input , Please choose form 1-9'
+    board.message = "\n   Wrong Input , Please choose form 1-9"
     continue
   end
 
   def position_taken_error
-    board.message = "     That position is taken,\n" + '    choose form the available ones'
+    board.message = "\n       cleaThat position is taken,\n" + '    choose form the available ones'
     continue
   end
 
   def no_input
-    board.message = 'Please choose form the available cells '
+    board.message = "\n   Please choose form the available cells "
     continue
   end
 
   def update
     board.toggle_players
     assign_cell
-    board.message = 'Please choose form the available cells'
+    board.message = "\n   Please choose form the available cells"
     board.compute_state
     decide
   end
