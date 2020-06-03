@@ -6,7 +6,13 @@
 
 ## Demo
 
-![screenshot](images/bubble.png)
+### when there is a win
+
+![screenshot](images/winner.png)
+
+### when there is a tie
+
+![screenshot](images/tie.png)
 
 ## Milestone 4
 
