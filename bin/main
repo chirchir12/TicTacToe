@@ -13,6 +13,10 @@ class Game
   def display
     @board.ui.display
   end
+
+  def display_status
+    @board.status_ui.display
+  end
 end
 game = Game.new
 puts 'Enter First Player\'s Name:'

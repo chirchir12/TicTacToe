@@ -81,15 +81,16 @@ class Board
     check_rows
     check_columns
     check_diagonals
+    # p"the state of the board is #{@state}"
   end
 
   def check_tie
     # check if we have a tie by checking we all positions are filled without a win
-    @state = 'tie' if finished?
+    @state = 'tie' if @state != 'WON' && finished?
   end
 
   def check_continue
-    @state = 'continue' unless finished?
+    @state = 'continue' if @state != 'WON' || @state != 'tie'
   end
 
   def toggle_players
@@ -106,12 +107,21 @@ class Board
   end
 
   def compute_state
+    check_continue
     check_win
     check_tie
-    check_continue
   end
 
   def display
     ui
+  end
+
+  def display_status
+    status_ui
+  end
+
+  def assign_cell
+    cells[player_move][0] = current_player.symbol
+    cells[player_move][1] = ' '
   end
 end

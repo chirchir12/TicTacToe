@@ -70,20 +70,15 @@ module Play
 
   def update
     board.toggle_players
-    assign_cell
-    board.message = "\n   Please choose form the available cells"
+    board.assign_cell
+    board.message = "\n   Please choose from the available cells"
     board.compute_state
     decide
   end
 
-  def assign_cell
-    board.cells[board.player_move][0] = board.current_player.symbol
-    board.cells[board.player_move][1] = ' '
-  end
-
   def decide
     if board.state == 'WIN'
-      board.message = "#{current_player.name} has Won"
+      board.message = "         #{board.current_player.name} has Won"
       restart
     elsif board.state == 'tie'
       board.message = "It's a tie"
@@ -105,8 +100,12 @@ module Play
     game.display
   end
 
+  def display_status
+    game.display_status
+  end
+
   def restart
-    system('clear')
+    display_status if board.state == 'WIN'
     system('ruby main')
   end
 
