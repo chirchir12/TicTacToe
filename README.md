@@ -73,7 +73,7 @@ In this project, we built a Tic Tac Toe game. The main goal is to put into pract
 
     Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page]().
+Feel free to check the [issues page](https://github.com/chirchir12/TicTacToe/issues).
 
 ## Show your support
 
