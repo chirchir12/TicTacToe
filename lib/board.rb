@@ -13,7 +13,6 @@ class Board
     @player2 = Player.new('Player-2', 'O')
     @current_player = player1
     @next_player = player2
-    @player_name = current_player.name
     @message = "\n  WELCOME! PLEASE CHOOSE ONE OF THE NINE CELLS"
     @state = 'continue'
     @player_move = ' '
