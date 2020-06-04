@@ -40,7 +40,7 @@ module UserInterface
   end
 
   def footer
-    "\n    #{option}\n\n"
+    "\n    Press e to exit, r to restart\n\n"
   end
 
   def row_one
