@@ -62,4 +62,8 @@ module UserInterface
   def ui
     mssg + header + table + footer
   end
+
+  def status_ui
+    mssg + table + footer
+  end
 end
