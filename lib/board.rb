@@ -109,8 +109,8 @@ class Board
 
   def compute_state
     check_continue
-    check_win
     check_tie
+    check_win
   end
 
   def display
