@@ -56,19 +56,22 @@ class Board
   end
 
   def check_rows
-    extract_rows.each do |i|
+    values = extract_rows
+    values.each do |i|
       @state = 'WIN' if i.all?('X') or i.all?('O')
     end
   end
 
   def check_columns
-    extract_columns.each do |i|
+    values = extract_columns
+    values.each do |i|
       @state = 'WIN' if i.all? 'X' or i.all? 'O'
     end
   end
 
   def check_diagonals
-    extract_diagonals.each do |i|
+    values = extract_diagonals
+    values.each do |i|
       @state = 'WIN' if i.all? 'X' or i.all? 'O'
     end
   end
