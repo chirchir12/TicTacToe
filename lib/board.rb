@@ -77,17 +77,13 @@ class Board
   end
 
   def check_win
-    # loop through the rows ,columns and diagonals to check if we have a winner
     check_rows
     check_columns
     check_diagonals
   end
 
   def check_tie
-    # check if we have a tie by checking we all positions are filled without a win
-    puts "#{@state} at the check tie"
     @state = 'tie' if @state != 'WON' && finished?
-    puts "#{@state} at the check tie"
   end
 
   def check_continue
