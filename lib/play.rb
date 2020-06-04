@@ -3,30 +3,6 @@ module Play
     board.player_move = gets.chomp
   end
 
-  def check_input_validity
-    if board.player_move.empty?
-      'no_input'
-    elsif !%w[1 2 3 4 5 6 7 8 9 e E r R].include?(board.player_move)
-      'wrong_input'
-    else
-      'good'
-    end
-  end
-
-  def check_input_availability
-    return unless check_input_validity == 'good'
-
-    if board.player_move == 'e'
-      'exit'
-    elsif board.player_move == 'r'
-      'restart'
-    elsif board.cells[board.player_move][0] != ' '
-      'taken'
-    else
-      'continue'
-    end
-  end
-
   def process_input
     case check_input_availability
     when 'continue'

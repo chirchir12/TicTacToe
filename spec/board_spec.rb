@@ -106,4 +106,13 @@ describe Board do
       expect(board.state).to eql('tie')
     end
   end
+
+  describe '#check_input_availability' do
+    board = Board.new
+    board.player_move = 'e'
+    board.check_input_validity
+    it 'returns exit for e' do
+      expect(board.check_input_availability).to eql('exit')
+    end
+  end
 end
