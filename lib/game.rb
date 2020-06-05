@@ -46,17 +46,14 @@ class Game
 
   def wrong_input
     board.message = "\n   Wrong Input , Please choose form 1-9"
-    continue
   end
 
   def position_taken_error
     board.message = "\n       That position is taken,\n" + '    choose form the available ones'
-    continue
   end
 
   def no_input
     board.message = "\n   Please choose form the available cells "
-    continue
   end
 
   def update
@@ -92,6 +89,7 @@ class Game
     read_input
     process_input
     process_error
+    continue
   end
 
   def restart

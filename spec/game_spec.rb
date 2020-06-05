@@ -12,4 +12,14 @@ describe Game do
       expect(game.board.message).to eql("          It's a tie")
     end
   end
+
+  describe '#process_error' do
+    it 'changes the message to wrong input for input outside 1-9' do
+      game.board.player_move = 'p'
+      game.board.check_input_validity
+      game.wrong_input
+      game.process_input
+      expect(game.board.message).to eql("\n   Wrong Input , Please choose form 1-9")
+    end
+  end
 end
