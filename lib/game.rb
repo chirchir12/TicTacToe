@@ -33,6 +33,7 @@ class Game
 
   def quit
     system('clear')
+    exit
   end
 
   def process_error
@@ -94,8 +95,12 @@ class Game
 
   def restart
     display_status if board.state == 'WIN' || board.state == 'tie'
-
-    system('ruby main')
+    dirname = File.basename(Dir.getwd)
+    if dirname == 'bin'
+      system('ruby main')
+    elsif dirname == 'TicTacToe'
+      system('ruby bin/main')
+    end
   end
 
   def start

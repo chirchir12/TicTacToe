@@ -19,6 +19,11 @@ describe Board do
                       '9' => %w[O 9] }
       expect(board.finished?).not_to eql(false)
     end
+    it 'it returns true for a finished game' do
+      board.cells = { '1' => %w[X 1], '2' => %w[O 2], '3' => [' ', '3'], '4' => [' ', '4'],
+                      '5' => [' ', '5'], '6' => [' ', '6'], '7' => [' ', '7'], '8' => [' ', '8'], '9' => [' ', '9'] }
+      expect(board.finished?).to eql(false)
+    end
   end
 
   describe '#extract_rows' do
@@ -39,9 +44,9 @@ describe Board do
   describe '#extract_diagonals' do
     it 'returns an empty array values for the diagonals of a cell' do
       board.cells = { '1' => %w[X 1], '2' => %w[O 2], '3' => ['X ', '3'], '4' => %w[O 4],
-                      '5' => [' X', '5'], '6' => %w[O 6], '7' => %w[O 7], '8' => %w[X 8],
+                      '5' => %w[X 5], '6' => %w[O 6], '7' => %w[O 7], '8' => %w[X 8],
                       '9' => %w[O 9] }
-      expect(board.extract_diagonals).to eql([['X', ' X', 'O'], ['X ', ' X', 'O']])
+      expect(board.extract_diagonals).to eql([%w[X X O], ['X ', 'X', 'O']])
     end
   end
 
