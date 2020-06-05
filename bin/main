@@ -1,26 +1,8 @@
 #!/usr/bin/env ruby
-require_relative '../lib/play'
+require_relative '../lib/game'
 require_relative '../lib/board'
-require_relative '../lib/player'
-
-class Game
-  include Play
-  attr_accessor :board
-  def initialize
-    @board = Board.new
-  end
-
-  def display
-    @board.ui.display
-  end
-
-  def display_status
-    system('clear')
-    @board.status_ui.display
-  end
-end
+# require 'game'
 game = Game.new
-
 puts 'Enter First Player\'s Name:'
 game.board.player1.name = gets.chomp.upcase
 puts 'Enter Second Player\'s Name:'

@@ -1,10 +1,24 @@
-module Play
+class Game
+  attr_accessor :board
+  def initialize
+    @board = Board.new
+  end
+
+  def display
+    @board.ui.display
+  end
+
+  def display_status
+    system('clear')
+    @board.status_ui.display
+  end
+
   def read_input
     board.player_move = gets.chomp
   end
 
   def process_input
-    case check_input_availability
+    case board.check_input_availability
     when 'continue'
       update
     when 'exit'
@@ -22,7 +36,7 @@ module Play
   end
 
   def process_error
-    case check_input_validity
+    case board.check_input_validity
     when 'wrong_input'
       wrong_input
     when 'no_input'
@@ -51,14 +65,21 @@ module Play
     board.message = "\n   Please choose from the available cells"
     board.compute_state
     decide
+    act_on_decision
   end
 
   def decide
     if board.state == 'WIN'
       board.message = "         #{board.current_player.name} has Won"
-      restart
     elsif board.state == 'tie'
       board.message = "          It's a tie"
+    end
+  end
+
+  def act_on_decision
+    if board.state == 'WIN'
+      restart
+    elsif board.state == 'tie'
       restart
     elsif board.state == 'continue'
       continue
@@ -71,14 +92,6 @@ module Play
     read_input
     process_input
     process_error
-  end
-
-  def display
-    game.display
-  end
-
-  def display_status
-    game.display_status
   end
 
   def restart
