@@ -1,3 +1,4 @@
+require 'stringio'
 require_relative '../lib/game'
 require_relative '../lib/board'
 describe Game do
@@ -31,6 +32,16 @@ describe Game do
       game.board.check_input_availability
       game.process_input
       expect(game.board.message).to eql("\n       That position is taken,\n" + '    choose form the available ones')
+    end
+  end
+
+  describe '#read_input' do
+    let(:input) { StringIO.new('1') }
+    it 'should take input from user' do
+      $stdin = input
+      game.read_input
+      expect(game.board.player_move).to eql('1')
+      $stdin = STDIN
     end
   end
 end
