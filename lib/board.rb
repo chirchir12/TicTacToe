@@ -121,4 +121,28 @@ class Board
     cells[player_move][0] = current_player.symbol
     cells[player_move][1] = ' '
   end
+
+  def check_input_validity
+    if player_move.empty?
+      'no_input'
+    elsif !%w[1 2 3 4 5 6 7 8 9 e E r R].include?(player_move)
+      'wrong_input'
+    else
+      'good'
+    end
+  end
+
+  def check_input_availability
+    return unless check_input_validity == 'good'
+
+    if player_move == 'e'
+      'exit'
+    elsif player_move == 'r'
+      'restart'
+    elsif cells[player_move][0] != ' '
+      'taken'
+    else
+      'continue'
+    end
+  end
 end
